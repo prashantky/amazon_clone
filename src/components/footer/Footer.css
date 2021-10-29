@@ -1,0 +1,22 @@
+.newFooter-hr-style{
+    border-color : var(--branding-color) !important;
+    border-width: 3px;
+  }
+  ul#newFooter-list-items li img{
+    width: 50px;
+  }
+  
+  ul#newFooter-list-items li{
+    display:inline;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .newFooter-list-items-design{
+    background-color: #f2f2f2	
+  }
+  .newFooter-list-items-Imagedesign{
+    width: 80px;
+  }
+  .newFooter-content-top-margin{
+    margin-top: 100px;
+  }

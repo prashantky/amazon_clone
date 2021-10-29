@@ -1,0 +1,40 @@
+.header{
+    display: flex;
+    position: sticky;
+    background-color: #131921;
+    align-items: center;
+}
+.header-logo{
+    width: 100px;
+    height: 40px;
+    object-fit: contain;
+}
+.header-search{
+    display: flex;
+    flex: 1;
+}
+.header-searchInput{
+    height: 12px;
+    padding: 10px;
+    border: none;
+    width: 80%;
+}
+.header-searchIcon{
+    padding: 5px;
+    height: 22px important;
+    background-color: yellow;
+}
+.header-option{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.header-nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+.header-link{
+    color: white;
+    text-decoration: none;
+}
