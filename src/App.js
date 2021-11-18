@@ -7,6 +7,7 @@ import Checkout from "./components/checkout/Checkout";
 import Login from "./components/login/Login";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./Firebase";
+import Payment from "./components/payment/Payment"
 const App = () => {
   const [{}, dispatch] = useStateValue();
   useEffect(() => {
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/" component={Header} exact />
           <Route path="/checkout" component={Checkout} exact />
           <Route path="/login" component={Login} exact />
+          <Route path="/payment" component={Payment} exact />
         </Switch>
       </Router>
     </div>
