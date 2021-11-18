@@ -32,7 +32,7 @@ const Header = () => {
     console.log("tititl",item.title)
     console.log("tititl",search)
     return (
-      item.rating.toString().toLowerCase().includes(search.toString().toLowerCase())
+      item.title.toString().toLowerCase().includes(search.toString().toLowerCase())
     )
       
   })
