@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
@@ -6,88 +6,109 @@ import "./Header.css";
 //import { Carousel } from "bootstrap";
 import CarouselHeader from "./carousel.js/Carousel";
 import Footer from "./footer/Footer";
-import  Products  from "./products/Products";
+import Products from "./products/Products";
 import Home from "./home/Home";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../Firebase";
-import  ListData from "../data"
-console.log("dta from header",ListData.length)
+import ListData from "../data";
+import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
+
+
 const Header = () => {
-  const { user, basket, dispatch } = useStateValue();
-  const [search,setSearch]=useState("")
+  const [ {user, basket} ] = useStateValue();
+  const [search, setSearch] = useState("");
+  
   const handleUser = () => {
     if (user) {
       auth.signOut();
     }
   };
-  const handleSearch=(event)=>{
-    setSearch(event.target.value)
-    console.log("?>>>>>>>>search",search)
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+    
+  };
 
-
-  }
+  const dataSearch = ListData.filter((item) => {
+    
+   return item.title
+     .toString()
+      .toLowerCase()
+      .includes(search.toString().toLowerCase());
+ });
   
-  const dataSearch=ListData.filter(item=>{
-    console.log("tititl",ListData)
-    console.log("tititl",item.title)
-    console.log("tititl",search)
-    return (
-      item.title.toString().toLowerCase().includes(search.toString().toLowerCase())
-    )
-      
-  })
-console.log("dataseache>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",dataSearch)
 
 
-
-        
-  console.log("dataseache>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",dataSearch)
-  
   return (
     <>
-      <nav className="header">
-        <img
-          className="header-logo"
-          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-          alt="logo"
-        />
-        <div className="header-search">
-          <input type="text" className="header-searchInput" onChange={handleSearch.bind(this)} value={search}/>
-          
-          
-          <SearchIcon className="header-searchIcon" />
-        </div>
-        <div className="header-nav">
-          <Link to={!user && "/login"} className="header-link">
-            <div className="header-option" onClick={handleUser}>
-              <span className="header-optionLineOne">Hello: {user?.email}</span>
-              <span className="header-optionLineTwo">
-                {user ? "Sign In" : "Sign out"}
-              </span>
+      <div className="WelcomeHeader-component">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="#home">
+              <Link href="/">
+                <img
+                  className="header-logo"
+                  src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+                  alt="logo"
+                />
+              </Link>
+            </Navbar.Brand>
+            <div className="header-search">
+              <input
+                type="text"
+                className="header-searchInput"
+                onChange={handleSearch}
+                value={search}
+              />
+
+              <SearchIcon className="header-searchIcon"  />
             </div>
-          </Link>
-          <Link to="/returns" className="header-link">
-            <div className="header-option">
-              <span className="header-optionLineOne">Returns</span>
-              <span className="header-optionLineTwo">& Orders</span>
-            </div>
-          </Link>
-          <Link to="/prime" className="header-link">
-            <div className="header-option">
-              <span className="header-optionLineOne">Your Prime</span>
-              <span className="header-optionLineTwo">Prime</span>
-            </div>
-          </Link>
-        </div>
-        <Link to="/checkout" className="header-link">
-          <div className="header-optionBasket">
-            <ShoppingBasketIcon />
-            <span>{basket?.length}</span>
-          </div>
-        </Link>
-      </nav>
-      <Home dataSearch={dataSearch} />
-    </>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto"></Nav>
+
+              <Nav>
+                <Nav.Link href={!user && "/login"} onClick={handleUser}>
+                  <div className="header-option">
+                  <span className="header-optionLineOne">
+                    Hello : {user?.email}
+                  </span>
+                  <span className="header-optionLineTwo">
+                    {user ? "Sign out" : "Sign In"}
+                  </span>
+                  </div>
+                </Nav.Link>
+                <Nav.Link href="/returns">
+                  {" "}
+                  <div className="header-option">
+
+                  <span className="header-optionLineOne">Returns</span>
+                  <span className="header-optionLineTwo">& Orders</span>
+                  </div>
+                </Nav.Link>
+                <Nav.Link href="/prime">
+                <div className="header-option">
+
+                  <span className="header-optionLineOne">Your Prime</span>
+                  <span className="header-optionLineTwo">Prime</span></div>
+
+                </Nav.Link>
+                <Nav.Link href="/checkout">
+                <div className="header-option">
+
+                  
+                  <span>{basket?.length}</span>
+                  
+                  </div>
+                  <ShoppingBasketIcon />
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        <Home dataSearch={ListData} />
+
+      </div>
+         </>
   );
 };
 export default Header;

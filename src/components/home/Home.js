@@ -2,8 +2,9 @@ import React from "react";
 import Products from "../products/Products";
 import "../home/Home.css";
 import  ListData from "../../data"
-console.log("list data",ListData)
+
 const Home = ({dataSearch}) => {
+  console.log("data seacrched",dataSearch)
   return (
     <div className="container">
       <div className="home_container">

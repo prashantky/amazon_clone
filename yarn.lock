@@ -1753,9 +1753,9 @@
     "source-map" "^0.7.3"
 
 "@popperjs/core@^2.8.6", "@popperjs/core@^2.9.2":
-  "integrity" "sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q=="
-  "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.9.2.tgz"
-  "version" "2.9.2"
+  "integrity" "sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ=="
+  "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.10.2.tgz"
+  "version" "2.10.2"
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   "integrity" "sha1-m4sMxmPWaafY9vXQiToU00jzD78="
@@ -2101,9 +2101,9 @@
   "version" "5.1.1"
 
 "@types/invariant@^2.2.33":
-  "integrity" "sha512-lYUtmJ9BqUN688fGY1U1HZoWT1/Jrmgigx2loq4ZcJpICECm/Om3V314BxdzypO0u5PORKGMM6x0OXaljV1YFg=="
-  "resolved" "https://registry.npmjs.org/@types/invariant/-/invariant-2.2.34.tgz"
-  "version" "2.2.34"
+  "integrity" "sha512-DxX1V9P8zdJPYQat1gHyY0xj3efl8gnMVjiM9iCY6y27lj+PoQWkgjt8jDqmovPqULkKVpKRg8J36iQiA+EtEg=="
+  "resolved" "https://registry.npmjs.org/@types/invariant/-/invariant-2.2.35.tgz"
+  "version" "2.2.35"
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   "integrity" "sha512-sz7iLqvVUg1gIedBOvlkxPlc8/uVzyS5OwGz1cKjXzkl3FpL3al0crU8YGU1WoHkxn0Wxbw5tyi6hvzJKNzFsw=="
@@ -2189,10 +2189,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.8.6 || ^17.0.0", "@types/react@>=16.14.8", "@types/react@>=16.9.11":
+"@types/react@*", "@types/react@^16.8.6 || ^17.0.0", "@types/react@>=16.9.11":
   "integrity" "sha512-D/G3PiuqTfE3IMNjLn/DCp6umjVCSvtZTPdtAFy5+Ved6CsdRvivfKeCzw79W4AatShtU4nGqgvOv5Gro534vQ=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.13.tgz"
   "version" "17.0.13"
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    "csstype" "^3.0.2"
+
+"@types/react@>=16.14.8":
+  "integrity" "sha512-rY4DzPKK/4aohyWiDRHS2fotN5rhBSK6/rz1X37KzNna9HJyqtaGAbq9fVttrEPWF5ywpfIP1ITL8Xi2QZn6Eg=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-16.14.21.tgz"
+  "version" "16.14.21"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -4674,6 +4683,11 @@
   "integrity" "sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA=="
   "resolved" "https://registry.npmjs.org/domain-browser/-/domain-browser-1.2.0.tgz"
   "version" "1.2.0"
+
+"domassist@^2.2.0":
+  "integrity" "sha512-fz/B/YgI88m+/fw49tFi1syaGuBuBGA8DkS3J53jkzH+9wD0B8zUwdiExZjQnnJAwI1aXTgNj4nlTlx797zFqQ=="
+  "resolved" "https://registry.npmjs.org/domassist/-/domassist-2.2.0.tgz"
+  "version" "2.2.0"
 
 "domelementtype@^1.3.1", "domelementtype@1":
   "integrity" "sha512-BSKB+TSpMpFI/HOxCNr1O8aMOTZ8hT3pM3GQ0w/mWRmkhEDSFJkkyzz4XQsBV44BChwGkrDfMyjVD0eA2aFV3w=="
@@ -8335,6 +8349,13 @@
   "resolved" "https://registry.npmjs.org/obuf/-/obuf-1.1.2.tgz"
   "version" "1.1.2"
 
+"offcanvas@^3.2.2":
+  "integrity" "sha512-pmWjZZjNgAAIg0QMCztn68hxb7Bv297NUqQknVaPBeUgcIlBec8HS34u+BXNH8RxTP3AvsDiuzunwfippRL18g=="
+  "resolved" "https://registry.npmjs.org/offcanvas/-/offcanvas-3.2.2.tgz"
+  "version" "3.2.2"
+  dependencies:
+    "domassist" "^2.2.0"
+
 "on-finished@~2.3.0":
   "integrity" "sha1-IPEzZIGwg811M3mSoWlxqi2QaUc="
   "resolved" "https://registry.npmjs.org/on-finished/-/on-finished-2.3.0.tgz"
@@ -9730,10 +9751,10 @@
     "regenerator-runtime" "^0.13.7"
     "whatwg-fetch" "^3.4.1"
 
-"react-bootstrap@^1.6.1":
-  "integrity" "sha512-ojEPQ6OtyIMdLg0Smofk+85PKN6MLKQX3bU0Vwmok/4yNa8DQ2vCGhO2IgHJvT+ERQZ4X+gAQcdn6msAHSwLBg=="
-  "resolved" "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-1.6.1.tgz"
-  "version" "1.6.1"
+"react-bootstrap@^1.6.4":
+  "integrity" "sha512-z3BhBD4bEZuLP8VrYqAD7OT7axdcSkkyvWBWnS2U/4MhyabUihrUyucPWkan7aMI1XIHbmH4LCpEtzWGfx/yfA=="
+  "resolved" "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-1.6.4.tgz"
+  "version" "1.6.4"
   dependencies:
     "@babel/runtime" "^7.14.0"
     "@restart/context" "^2.1.4"
@@ -9748,7 +9769,7 @@
     "invariant" "^2.2.4"
     "prop-types" "^15.7.2"
     "prop-types-extra" "^1.1.0"
-    "react-overlays" "^5.0.1"
+    "react-overlays" "^5.1.1"
     "react-transition-group" "^4.4.1"
     "uncontrollable" "^7.2.1"
     "warning" "^4.0.3"
@@ -9834,10 +9855,10 @@
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
 
-"react-overlays@^5.0.1":
-  "integrity" "sha512-Qp8dqDIIYgQoHxOGVKHwvQUkDe70/Ja/6dn8iCQAXyPvvpks3+T8scLTZLK8MPBBu+X8ustas6y4U6M6zdmCjA=="
-  "resolved" "https://registry.npmjs.org/react-overlays/-/react-overlays-5.1.0.tgz"
-  "version" "5.1.0"
+"react-overlays@^5.1.1":
+  "integrity" "sha512-eCN2s2/+GVZzpnId4XVWtvDPYYBD2EtOGP74hE+8yDskPzFy9+pV1H3ZZihxuRdEbQzzacySaaDkR7xE0ydl4Q=="
+  "resolved" "https://registry.npmjs.org/react-overlays/-/react-overlays-5.1.1.tgz"
+  "version" "5.1.1"
   dependencies:
     "@babel/runtime" "^7.13.8"
     "@popperjs/core" "^2.8.6"
