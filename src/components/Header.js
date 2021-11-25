@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import "./Header.css";
@@ -12,12 +12,12 @@ import { useStateValue } from "../StateProvider";
 import { auth } from "../Firebase";
 import ListData from "../data";
 import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [ {user, basket} ] = useStateValue();
+  const [{ user, basket }] = useStateValue();
   const [search, setSearch] = useState("");
-  
+
   const handleUser = () => {
     if (user) {
       auth.signOut();
@@ -25,26 +25,19 @@ const Header = () => {
   };
   const handleSearch = (event) => {
     setSearch(event.target.value);
-    
   };
 
   const dataSearch = ListData.filter((item) => {
-    
-   return item.title
-     .toString()
-      .toLowerCase()
-      .includes(search.toString().toLowerCase());
- });
-  
-
-
+    return item?.title.toLowerCase().indexOf(search.toLowerCase())>-1;
+  });
+console.log("header-search",dataSearch)
   return (
     <>
       <div className="WelcomeHeader-component">
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="#home">
-              <Link href="/">
+            <Navbar.Brand >
+              <Link to="/">
                 <img
                   className="header-logo"
                   src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
@@ -60,55 +53,49 @@ const Header = () => {
                 value={search}
               />
 
-              <SearchIcon className="header-searchIcon"  />
+              <SearchIcon className="header-searchIcon" />
             </div>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto"></Nav>
 
               <Nav>
-                <Nav.Link href={!user && "/login"} onClick={handleUser}>
+                <Link to={!user && "/login"} onClick={handleUser}>
                   <div className="header-option">
-                  <span className="header-optionLineOne">
-                    Hello : {user?.email}
-                  </span>
-                  <span className="header-optionLineTwo">
-                    {user ? "Sign out" : "Sign In"}
-                  </span>
+                    <span className="header-optionLineOne">
+                      Hello : {user?.email}
+                    </span>
+                    <span className="header-optionLineTwo">
+                      {user ? "Sign out" : "Sign In"}
+                    </span>
                   </div>
-                </Nav.Link>
-                <Nav.Link href="/returns">
+                </Link>
+                <Link to="/returns">
                   {" "}
                   <div className="header-option">
-
-                  <span className="header-optionLineOne">Returns</span>
-                  <span className="header-optionLineTwo">& Orders</span>
+                    <span className="header-optionLineOne">Returns</span>
+                    <span className="header-optionLineTwo">& Orders</span>
                   </div>
-                </Nav.Link>
-                <Nav.Link href="/prime">
-                <div className="header-option">
-
-                  <span className="header-optionLineOne">Your Prime</span>
-                  <span className="header-optionLineTwo">Prime</span></div>
-
-                </Nav.Link>
-                <Nav.Link href="/checkout">
-                <div className="header-option">
-
-                  
-                  <span>{basket?.length}</span>
-                  
+                </Link>
+                <Link to="/prime">
+                  <div className="header-option">
+                    <span className="header-optionLineOne">Your Prime</span>
+                    <span className="header-optionLineTwo">Prime</span>
+                  </div>
+                </Link>
+                <Link to="/checkout">
+                  <div className="header-option">
+                    <span>{basket?.length}</span>
                   </div>
                   <ShoppingBasketIcon />
-                </Nav.Link>
+                </Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
         <Home dataSearch={ListData} />
-
       </div>
-         </>
+    </>
   );
 };
 export default Header;
