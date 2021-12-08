@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 //import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
@@ -13,9 +13,13 @@ import { auth } from "../Firebase";
 import ListData from "../data";
 import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import { Counter } from "./counter/Counter";
+import Pagination from "./pagination/Pagination"
 const Header = () => {
   const [{ user, basket }] = useStateValue();
+  const [{dataPagination,selectedProducts},dispatch]=useStateValue();
+  const [searchResponse,setSearchResponse]=useState([])
+//console.log("header page selectedProducts",selectedProducts)
   const [search, setSearch] = useState("");
 
   const handleUser = () => {
@@ -23,10 +27,30 @@ const Header = () => {
       auth.signOut();
     }
   };
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
+  const handleSearch = (text) => {
+    const searchArray=selectedProducts.filter((item)=>
+      item.title.toLowerCase().includes(text)
+    )
+    console.log("search Array >>>.....................",searchArray)
+    setSearchResponse(searchArray)
+    
+    
   };
+  useEffect(() => {
+    console.log("search data from searcharray",searchResponse)
+  
 
+   }, [searchResponse])
+   useEffect(() => {
+    
+  setSearchResponse(selectedProducts)
+
+   }, [selectedProducts])
+
+     useEffect(() => {
+      console.log("header page selectedProducts",selectedProducts)
+
+     }, [selectedProducts])
   const dataSearch = ListData.filter((item) => {
     return item?.title.toLowerCase().indexOf(search.toLowerCase())>-1;
   });
@@ -49,8 +73,8 @@ console.log("header-search",dataSearch)
               <input
                 type="text"
                 className="header-searchInput"
-                onChange={handleSearch}
-                value={search}
+                onChange={(e)=>handleSearch(e.target.value)}
+                
               />
 
               <SearchIcon className="header-searchIcon" />
@@ -93,7 +117,8 @@ console.log("header-search",dataSearch)
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <Home dataSearch={ListData} />
+        <Home searchResponse={searchResponse} />
+        <Pagination dataSearch={ListData}/>
       </div>
     </>
   );

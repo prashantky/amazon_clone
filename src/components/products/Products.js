@@ -43,6 +43,7 @@ const Products = ({ title, price, rating, image, id }) => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

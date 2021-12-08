@@ -5,10 +5,11 @@ import  ListData from "../../data"
 import { useContext } from "react";
 import { StateContext } from "../../StateProvider";
 import { Link } from "react-router-dom";
+import { Pagination } from "react-bootstrap";
   
-const Home = ({dataSearch}) => {
+const Home = ({searchResponse}) => {
   //const data=useContext(StateContext)
-  console.log("home searched filed",dataSearch)
+  console.log("home searched filed",searchResponse)
   return (
     <div className="container">
       <div className="home_container">
@@ -19,7 +20,7 @@ const Home = ({dataSearch}) => {
         />
       </div>
       <div className="row h-50">
-          {dataSearch?.map((item,key)=>{
+          {searchResponse?.map((item,key)=>{
            return (
             
             <div className="col-md-4 " key={key.id}>
@@ -35,7 +36,7 @@ const Home = ({dataSearch}) => {
             
             </div>)
           })}
-          <Link to="/checkout2">click</Link>
+    
          </div>
         
     
