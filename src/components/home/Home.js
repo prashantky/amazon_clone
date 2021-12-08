@@ -1,15 +1,15 @@
 import React from "react";
 import Products from "../products/Products";
 import "../home/Home.css";
-import  ListData from "../../data"
+import ListData from "../../data";
 import { useContext } from "react";
 import { StateContext } from "../../StateProvider";
 import { Link } from "react-router-dom";
 import { Pagination } from "react-bootstrap";
-  
-const Home = ({searchResponse}) => {
+
+const Home = ({ searchResponse }) => {
   //const data=useContext(StateContext)
-  console.log("home searched filed",searchResponse)
+  console.log("home searched filed", searchResponse);
   return (
     <div className="container">
       <div className="home_container">
@@ -19,11 +19,11 @@ const Home = ({searchResponse}) => {
           alt=""
         />
       </div>
-      <div className="row h-50">
+      <div className="row ">
           {searchResponse?.map((item,key)=>{
            return (
             
-            <div className="col-md-4 " key={key.id}>
+            <div className="col-lg-4 " key={key.id}  style={{marginBottom:"10px"}}>
            <Products
             
             title={item.title}
@@ -41,6 +41,7 @@ const Home = ({searchResponse}) => {
         
     
     </div>
+    
   );
 };
 export default Home;

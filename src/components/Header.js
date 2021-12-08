@@ -61,7 +61,7 @@ console.log("header-search",dataSearch)
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
             <Navbar.Brand >
-              <Link to="/">
+              <Link  to="/">
                 <img
                   className="header-logo"
                   src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
@@ -86,7 +86,7 @@ console.log("header-search",dataSearch)
               <Nav>
                 <Link to={!user && "/login"} onClick={handleUser}>
                   <div className="header-option">
-                    <span className="header-optionLineOne">
+                    <span className="header-optionLineOneEmail">
                       Hello : {user?.email}
                     </span>
                     <span className="header-optionLineTwo">

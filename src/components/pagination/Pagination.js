@@ -1,3 +1,4 @@
+import { More } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import { initialState } from "../../reducer";
 import { useStateValue } from "../../StateProvider";
@@ -17,7 +18,7 @@ const Pagination = () => {
     
 //   }
   useEffect(() => {
-    const dataSearch=dataPagination.slice((index-1)*10,index*10)
+    const dataSearch=dataPagination.slice((index-1)*12,index*12)
     console.log("useeffect ke andar",dataSearch)
     dispatch({
       type:"PRODUCTS",
@@ -27,7 +28,7 @@ const Pagination = () => {
   }, [index])
   
     const handleNext=(changeIndex)=>{
-if(index<pageNumbers.length)
+if(index<pageNumbers.length-1)
       setIndex(changeIndex)
     }
 const handlePrev=(changeIndex)=>{
@@ -49,20 +50,9 @@ const handlePrev=(changeIndex)=>{
     <div>
       <div className="container">
         <div className="row  d-flex justify-content-between mb-3">
-          <div className="col">
-            <button onClick={()=>handlePrev(index-1)} >prev</button>
-          </div>
-
-          <div className="col d-flex">
-            {pageNumbers.map((items) => (
-              <p key={items} id={items}>{items}</p>
-            ))}
-          </div>
-
-          <div className="col offset-6">
-            <button onClick={()=>handleNext(index+1)}>next</button>
-          </div>
+         <button onClick={()=>handleNext(index+1)}  className="btn-primary">Show More</button>
         </div>
+        
       </div>
     </div>
   );
