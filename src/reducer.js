@@ -5,7 +5,10 @@ export const initialState = {
   user: null,
   counter: 10,
   dataPagination:ListData,
-  selectedProducts:[]
+  selectedProducts:[],
+  videos:[],
+  selectedVideos:null,
+  selectedProductsDetails:[]
 
   
 };
@@ -52,6 +55,18 @@ const reducer = (state, action) => {
           ...state,
          selectedProducts :[...action.selectedProducts]
         };
+        case "YOUTUBELOADVIDEO":
+        console.log("action in products reducer",action)
+        return {
+          ...state,
+         videos :[...action.videos]
+        };
+        case "SELECTEDPRODUCTSDETAILS":
+          console.log("action in productsdetails>>>>>>>>>>>>>>>>>>>>>>>> reducer",action)
+          return {
+            ...state,
+            selectedProductsDetails :[...state.selectedProductsDetails,action.productsDetails]
+          };
       
     default:
       return state;

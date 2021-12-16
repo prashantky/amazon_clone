@@ -101,10 +101,10 @@ console.log("header-search",dataSearch)
                     <span className="header-optionLineTwo">& Orders</span>
                   </div>
                 </Link>
-                <Link to="/prime">
+                <Link to="/youtube/video">
                   <div className="header-option">
                     <span className="header-optionLineOne">Your Prime</span>
-                    <span className="header-optionLineTwo">Prime</span>
+                    <span className="header-optionLineTwo">Video</span>
                   </div>
                 </Link>
                 <Link to="/checkout">

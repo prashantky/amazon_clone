@@ -10,7 +10,11 @@ import Login from "./components/login/Login";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./Firebase";
 import Payment from "./components/payment/Payment"
+import { Youtube } from "./components/youtube/Youtube";
+import ProductDetails from "./components/productDetails/ProductDetails";
+import { useParams } from "react-router-dom";
 const App = () => {
+let {id}=useParams()
   const [{basket,user}, dispatch] = useStateValue();
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -32,6 +36,10 @@ const App = () => {
 
           <Route path="/login" component={Login} exact />
           <Route path="/payment" component={Payment} exact />
+          <Route path="/youtube/video" component={Youtube} exact />
+          <Route path={`/details/${id}`}component={ProductDetails} exact />
+
+
         </Switch>
       </Router>
     </div>
